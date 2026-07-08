@@ -42,6 +42,15 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+// Pre-select service dropdown from ?service= query param (used by niche landing page CTAs)
+const serviceSelect = document.getElementById('service');
+if (serviceSelect) {
+  const requestedService = new URLSearchParams(window.location.search).get('service');
+  if (requestedService && serviceSelect.querySelector(`option[value="${requestedService}"]`)) {
+    serviceSelect.value = requestedService;
+  }
+}
+
 // Contact form handler
 const form = document.getElementById('contactForm');
 if (form) {

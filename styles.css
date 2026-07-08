@@ -486,7 +486,10 @@ section { padding: 7rem 2.5rem; }
   cursor: default;
   position: relative;
   overflow: hidden;
+  display: block;
 }
+
+a.service-card { cursor: pointer; }
 
 .service-card::before {
   content: '';
